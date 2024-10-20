@@ -9,7 +9,7 @@ import BaseTitle from '@/components/BaseTitle.vue';
 const api = useAPI()
 const question = ref(null)
 const route = useRoute()
-const answer = ref([])
+const answers = ref([])
 
 
 onMounted(async () => {
@@ -56,14 +56,18 @@ const shuffle = (array) => {
 
 <template>
 
-  <div v-if="question" class="">
+  <div v-if="question" class="flex h-full w-full flex-col items-center gap-8 p-10">
     <BaseTitle>{{ question.category }} </BaseTitle>
-    {{ question.question }}
+    <!-- {{ question.question }} -->
 
-<div v-for="answer in answers" v-html="answer.answer" :key="answer.id"></div>
+    <div v-html="question.question" class="text-center text-2xl font-bold"></div>
+    <div class="grid w-full flex-grow grid-cols-2 gap-8">
+          <div v-for="answer in answers" v-html="answer.answer" :key="answer.id" 
+            class="bg-green-500 flex items-center justify-center text-4x1 rounded-lg text-white py-10 px-2">
+          </div>
+        </div>
 
-</div>
-
+      </div>
 
 <div v-else class="">
   Loading...
