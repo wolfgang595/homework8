@@ -10,7 +10,7 @@ const {score} = useScore()
 <template>
 
 
-    <span class="">Your Score: {{ score }}</span>
+    <span class="">Main Score: {{ score }}</span>
 
 
 </template>
